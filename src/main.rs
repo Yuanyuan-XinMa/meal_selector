@@ -3,10 +3,10 @@ use std::cmp::Ordering;
 use rand::Rng;
 
 fn main() {
-    println!("Please enter an integer to guess");
+    println!("Please guess an integer from 1 to 10 inclusive: ");
     let random_number = rand::thread_rng().gen_range(1..=10);
     let mut correct_guess = false;
-    let mut guessed_number: i32;
+    let mut guessed_number: i32 = -1;
     while !correct_guess {
         let mut guessed_number_str = String::new();
         std::io::stdin()
@@ -28,5 +28,5 @@ fn main() {
             Ordering::Equal => correct_guess = true,
         }
     }
-    println!("You guessed {}, CORRECT! CONGRATS!!", random_number);
+    println!("You guessed {}, CORRECT! CONGRATS!!", guessed_number);
 }
